@@ -24,6 +24,8 @@ public class CadastroCliente extends Cadastro {
 		String nome = entrada.receberTexto();
 		System.out.println("Por favor informe o nome social do cliente:");
 		String nomeSocial = entrada.receberTexto();
+		System.out.println("Por favor informe o gênero do cliente:");
+		String genero = entrada.receberTexto();
 		System.out.println("Por favor informe o número do cpf:");
 		String valor = entrada.receberTexto();
 		System.out.println("Por favor informe a data de emissão do cpf, no padrão dd/mm/yyyy:");
@@ -31,7 +33,7 @@ public class CadastroCliente extends Cadastro {
 		DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		LocalDate dataEmissao = LocalDate.parse(data, formato);
 		CPF cpf = new CPF(dataEmissao, valor);
-		Cliente cliente = new Cliente(nome, nomeSocial, cpf);
+		Cliente cliente = new Cliente(nome, nomeSocial, genero, cpf);
 		this.clientes.add(cliente);
 	}
 }
